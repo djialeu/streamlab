@@ -10,7 +10,7 @@ dependencies = []
 [dependency-groups]
 # Outils de développement partagés par tous les projets Python.
 dev = [
-    "httpx>=0.29.0",       # requis par le TestClient de FastAPI
+    "httpx2>=2.16.2",      # client HTTP utilisé par le TestClient de FastAPI/Starlette
     "mypy>=2.4.1",
     "pytest>=9.2.0",
     "ruff>=0.17.6",

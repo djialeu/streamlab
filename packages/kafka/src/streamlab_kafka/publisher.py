@@ -30,7 +30,9 @@ class Publisher:
         self._producer = producer
         self._delivery_timeout_s = delivery_timeout_s
 
-    def publish(self, topic: str, event: EventEnvelope[BaseModel], key: str) -> DeliveryResult:
+    def publish[PayloadT: BaseModel](
+        self, topic: str, event: EventEnvelope[PayloadT], key: str
+    ) -> DeliveryResult:
         """Publie un événement et ATTEND l'accusé de réception de Kafka.
 
         La clé détermine la partition (hash(clé) % nombre de partitions) :
