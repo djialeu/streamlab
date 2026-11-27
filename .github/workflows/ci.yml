@@ -1,0 +1,58 @@
+# Intégration continue : installation, vérification des types, lint et tests
+# à chaque push et à chaque pull request.
+# Kafka n'est pas nécessaire : les tests unitaires utilisent des faux.
+# Le test de bout en bout (pnpm smoke) se lance en local.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+# Une nouvelle exécution sur la même branche annule la précédente.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Typecheck, lint et tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Version minimale déclarée (requires-python) et version la plus récente.
+        python-version: ["3.12", "3.14"]
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v7
+
+      - name: Installer pnpm (version lue dans package.json > packageManager)
+        uses: pnpm/action-setup@v6
+
+      - name: Installer Node.js (version lue dans .nvmrc)
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Installer uv et Python
+        uses: astral-sh/setup-uv@v10
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+
+      - name: Installer les dépendances JS (turbo)
+        run: pnpm install --frozen-lockfile
+
+      - name: Installer les dépendances Python (exactement celles de uv.lock)
+        run: uv sync --all-packages --frozen
+
+      - name: Vérifier les types (mypy --strict)
+        run: pnpm typecheck
+
+      - name: Lint et format (ruff)
+        run: pnpm lint
+
+      - name: Tests (pytest)
+        run: pnpm test
