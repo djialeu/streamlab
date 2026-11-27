@@ -10,7 +10,7 @@ StreamLab est une plateforme de **streaming vidéo éducative** (YouTube et Twit
 
 Le code est une **référence pédagogique** : lisible avant tout, commenté en français, sans complexité inutile.
 
-Vision complète : [`docs/vision.md`](docs/vision.md). Architecture (C4, flux, événements, données) : [`docs/architecture/`](docs/architecture/README.md). Décisions : [`docs/adr/`](docs/adr/).
+Vision complète : [`docs/vision.md`](docs/vision.md). Parcours pédagogique pour (re)découvrir le projet : [`docs/guide-de-lecture.md`](docs/guide-de-lecture.md), **à compléter à la fin de chaque TD**. Architecture (C4, flux, événements, données) : [`docs/architecture/`](docs/architecture/README.md). Décisions : [`docs/adr/`](docs/adr/).
 
 ### Architecture cible (résumé)
 

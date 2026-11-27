@@ -4,6 +4,7 @@ Plateforme de **streaming vidéo éducative** (YouTube et Twitch simplifiés) : 
 
 > **Étape actuelle : TD1, le socle.** Monorepo, infrastructure Docker (Kafka 4 KRaft, Kafbat UI, PostgreSQL), trois services FastAPI squelettes, et un événement `system.ping` qui traverse Kafka de `catalog` à `stats`.
 
+- **Vous avez manqué un TD ?** Suivez le [guide de lecture](docs/guide-de-lecture.md) : parcours des fichiers, expériences, auto-évaluation.
 - Vision et feuille de route : [`docs/vision.md`](docs/vision.md)
 - Architecture (C4, flux, événements, données) : [`docs/architecture/`](docs/architecture/README.md)
 - Décisions (ADR) : [`docs/adr/`](docs/adr/)
