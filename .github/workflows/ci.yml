@@ -37,7 +37,7 @@ jobs:
           cache: pnpm
 
       - name: Installer uv et Python
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.4.0  # pas de tag majeur flottant pour cette action
         with:
           python-version: ${{ matrix.python-version }}
           enable-cache: true
