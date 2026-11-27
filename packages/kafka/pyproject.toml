@@ -1,0 +1,16 @@
+[project]
+name = "streamlab-kafka"
+version = "0.1.0"
+description = "Petite couche au-dessus de confluent-kafka : publisher idempotent et consumer validant."
+requires-python = ">=3.12"
+dependencies = [
+    "confluent-kafka>=2.16.2",
+    "streamlab-contracts",
+]
+
+[tool.uv.sources]
+streamlab-contracts = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13.10,<0.14"]
+build-backend = "uv_build"

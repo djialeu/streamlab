@@ -1,0 +1,15 @@
+{
+  "name": "@streamlab/stats-service",
+  "private": true,
+  "description": "Projet Python : les scripts délèguent à uv pour que Turborepo l'orchestre.",
+  "scripts": {
+    "dev": "uv run python -m stats_service",
+    "typecheck": "uv run mypy src tests",
+    "lint": "uv run ruff check src tests && uv run ruff format --check src tests",
+    "test": "uv run pytest"
+  },
+  "dependencies": {
+    "@streamlab/contracts": "workspace:*",
+    "@streamlab/kafka": "workspace:*"
+  }
+}

@@ -31,6 +31,16 @@ target-version = "py312"
 # B : bugs probables, SIM : simplifications.
 select = ["E", "F", "I", "UP", "B", "SIM"]
 
+[tool.ruff.lint.isort]
+# Nos paquets internes : imports regroupés à part, après les bibliothèques.
+known-first-party = [
+    "streamlab_contracts",
+    "streamlab_kafka",
+    "catalog_service",
+    "identity_service",
+    "stats_service",
+]
+
 [tool.mypy]
 strict = true
 plugins = ["pydantic.mypy"]
