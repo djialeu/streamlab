@@ -1,0 +1,7 @@
+# Projets du monorepo orchestrés par pnpm + Turborepo.
+# Les projets Python (packages/*, services/*) ont un petit package.json
+# dont les scripts délèguent à uv : turbo les lance comme n'importe quel projet.
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "services/*"

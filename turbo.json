@@ -1,0 +1,21 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "stream",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "inputs": ["src/**", "tests/**", "pyproject.toml", "package.json"]
+    },
+    "lint": {
+      "inputs": ["src/**", "tests/**", "pyproject.toml"]
+    },
+    "test": {
+      "dependsOn": ["^test"],
+      "inputs": ["src/**", "tests/**", "pyproject.toml"]
+    }
+  }
+}

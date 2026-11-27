@@ -1,0 +1,25 @@
+# Dépendances
+node_modules/
+.venv/
+
+# Secrets et configuration locale
+.env
+.env.local
+
+# Artefacts Python
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Turborepo
+.turbo/
+
+# Divers
+*.log
+.DS_Store
+Thumbs.db

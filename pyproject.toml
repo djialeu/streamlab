@@ -1,0 +1,39 @@
+# Racine du workspace uv : elle ne contient pas de code, seulement
+# la liste des projets Python et la configuration commune des outils.
+[project]
+name = "streamlab-workspace"
+version = "0.1.0"
+description = "Racine du workspace Python de StreamLab"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+# Outils de développement partagés par tous les projets Python.
+dev = [
+    "httpx>=0.29.0",       # requis par le TestClient de FastAPI
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.6",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["packages/*", "services/*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F : erreurs de base, I : ordre des imports, UP : syntaxe moderne,
+# B : bugs probables, SIM : simplifications.
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+strict = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+addopts = "--import-mode=importlib"

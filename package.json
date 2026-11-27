@@ -1,0 +1,24 @@
+{
+  "name": "streamlab",
+  "private": true,
+  "description": "StreamLab — plateforme de streaming vidéo éducative (monorepo du cours Technologie web et applications)",
+  "packageManager": "pnpm@12.23.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "setup": "uv sync --all-packages",
+    "dev": "turbo run dev",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "infra:up": "docker compose up -d",
+    "infra:down": "docker compose down",
+    "infra:reset": "docker compose down --volumes && docker compose up -d",
+    "infra:logs": "docker compose logs -f --tail=100",
+    "smoke": "node scripts/smoke-test.mjs"
+  },
+  "devDependencies": {
+    "turbo": "2.11.13"
+  }
+}
